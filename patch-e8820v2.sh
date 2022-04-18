@@ -146,7 +146,7 @@ esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
 #增加驱动
 
-sed -i 'define Device/zte_e8820v2\
+sed -i '$a define Device/zte_e8820v2\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
