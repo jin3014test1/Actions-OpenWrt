@@ -1,5 +1,7 @@
 #! /bin/bash
 
+#增加mt7621_zte_e8820v2.dts
+
 cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
 /dts-v1/;
 #include "mt7621.dtsi"
@@ -14,6 +16,7 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
         led-failsafe = &led_sys;
         led-running = &led_sys;
         led-upgrade = &led_sys;
+	label-mac-device = &ethernet;
     };
     chosen {
         bootargs = "console=ttyS0,115200";
@@ -99,33 +102,17 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
         };
     };
 };
-&gmac0 {
-    mtd-mac-address = <&factory 0xe000>;
+&ethernet {
+	compatible = "mediatek,ralink-mt7621-eth";
+	mediatek,switch = <&gsw>;
+    	mtd-mac-address = <&factory 0xe000>;
 };
 &switch0 {
-    ports {
-        port@4 {
-            status = "okay";
-            label = "wan";
-            mtd-mac-address = <&factory 0xe006>;
-        };
-        port@0 {
-            status = "okay";
-            label = "lan1";
-        };
-        port@1 {
-            status = "okay";
-            label = "lan2";
-        };
-        port@2 {
-            status = "okay";
-            label = "lan3";
-        };
-        port@3 {
-            status = "okay";
-            label = "lan4";
-        };
-    };
+	/delete-property/ compatible;
+	phy-mode = "rgmii";    
+};
+&gsw {
+	compatible = "mediatek,ralink-mt7621-gsw";
 };
 &state_default {
     gpio {
@@ -142,14 +129,19 @@ sed -i 's/^esac/zte,e8820v2)\
 ;;\
 esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
-	
+#增加交换机
+
+sed -i 's/d-team,newifi-d2/zte,e8820s_spi/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
 #增加驱动
 
 sed -i '$a define Device/zte_e8820v2\
+  $(Device/dsa-migration)\
+  $(Device/uimage-lzma-loader)\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
-  DEVICE_PACKAGES :=     kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport wpad luci\
+  DEVICE_PACKAGES :=     kmod-mt7603 kmod-mt76x2 kmod-usb2 kmod-usb-ledtrig-usbport wpad luci\
 endef\
 TARGET_DEVICES += zte_e8820v2' ./target/linux/ramips/image/mt7621.mk
