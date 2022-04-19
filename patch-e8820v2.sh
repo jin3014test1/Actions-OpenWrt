@@ -3,7 +3,7 @@
 #增加mt7621_zte_e8820v2.dts
 
 cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
-/dts-v1/;
+
 #include "mt7621.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
