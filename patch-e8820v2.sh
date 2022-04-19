@@ -137,7 +137,6 @@ sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "
 #增加驱动
 
 sed -i '$a define Device/zte_e8820v2\
-  
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
