@@ -3,7 +3,6 @@
 #增加mt7621_zte_e8820v2.dts
 
 cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
-/dts-v1/; 
 #include "mt7621.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
@@ -39,68 +38,72 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
             gpios = <&gpio 18 GPIO_ACTIVE_LOW>;
             linux,code = <KEY_RESTART>;
         };
+        wps {
+            label = "wps";
+            gpios = <&gpio 24 GPIO_ACTIVE_LOW>;
+            linux,code = <KEY_WPS_BUTTON>;
+        };
     };
 };
 &spi0 {
-	status = "okay";
-
-	flash@0 {
-		compatible = "jedec,spi-nor";
-		reg = <0>;
-		spi-max-frequency = <10000000>;
-		broken-flash-reset;
-
-		partitions {
-			compatible = "fixed-partitions";
-			#address-cells = <1>;
-			#size-cells = <1>;
-
-			partition@0 {
-				label = "u-boot";
-				reg = <0x0 0x30000>;
-				read-only;
-			};
-
-			partition@30000 {
-				label = "u-boot-env";
-				reg = <0x30000 0x10000>;
-				read-only;
-			};
-
-			factory: partition@40000 {
-				label = "factory";
-				reg = <0x40000 0x10000>;
-				read-only;
-			};
-
-			partition@50000 {
-				compatible = "denx,uimage";
-				label = "firmware";
-				reg = <0x50000 0xfb0000>;
-			};
-		};
-	};
+    status = "okay";
+    flash@0 {
+        compatible = "jedec,spi-nor";
+        reg = <0>;
+        spi-max-frequency = <10000000>;
+	broken-flash-reset;
+        partitions {
+            compatible = "fixed-partitions";
+            #address-cells = <1>;
+            #size-cells = <1>;
+            partition@0 {
+                label = "u-boot";
+                reg = <0x0 0x30000>;
+                read-only;
+            };
+            partition@30000 {
+                label = "u-boot-env";
+                reg = <0x30000 0x10000>;
+                read-only;
+            };
+            factory: partition@40000 {
+                label = "factory";
+                reg = <0x40000 0x10000>;
+                read-only;
+            };
+            partition@50000 {
+                compatible = "denx,uimage";
+                label = "firmware";
+                reg = <0x50000 0xfb0000>;
+            };
+        };
+    };
 };
 &pcie {
     status = "okay";
 };
 &pcie0 {
-	wifi@0,0 {
-		compatible = "pci14c3,7603";
-		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&factory 0x0000>;
-		ieee80211-freq-limit = <2400000 2500000>;
-	};
+    mt76@0,0 {
+        reg = <0x0000 0 0 0 0>;
+        mediatek,mtd-eeprom = <&factory 0x0000>;
+        led {
+            led-active-low;
+        };
+    };
+};
+&pcie1 {
+    mt76@0,0 {
+        reg = <0x0000 0 0 0 0>;
+        mediatek,mtd-eeprom = <&factory 0x8000>;
+        ieee80211-freq-limit = <5000000 6000000>;
+        led {
+            led-sources = <2>;
+            led-active-low;
+        };
+    };
 };
 
-&pcie1 {
-	wifi@0,0 {
-		compatible = "pci14c3,7662";
-		reg = <0x0000 0 0 0 0>;
-		mediatek,mtd-eeprom = <&factory 0x8000>;
-		ieee80211-freq-limit = <5000000 6000000>;
-	};
-};
+
 &ethernet {
 	compatible = "mediatek,ralink-mt7621-eth";
 	mediatek,switch = <&gsw>;
@@ -137,6 +140,7 @@ sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "
 
 sed -i '$a define Device/zte_e8820v2\
   $(Device/dsa-migration)\
+  $(Device/uimage-lzma-loader)\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
