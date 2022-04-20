@@ -137,7 +137,7 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820s_spi.dts<<EOF
 &ethernet {
 	compatible = "mediatek,ralink-mt7621-eth";
 	mediatek,switch = <&gsw>;
-	mtd-mac-address = <&factory 0xe006>;
+	mtd-mac-address = <&factory 0xe000>;
 };
 
 &switch0 {
