@@ -130,7 +130,7 @@ esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
 #增加交换机
 
-sed -i 's/d-team,newifi-d2/zte,e8820s_spi/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+sed -i 's/d-team,newifi-d2/zte,e8820v2/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
 #增加驱动
