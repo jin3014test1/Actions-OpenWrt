@@ -85,24 +85,33 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
     status = "okay";
 };
 &pcie0 {
-    mt76@0,0 {
-        reg = <0x0000 0 0 0 0>;
-        mediatek,mtd-eeprom = <&factory 0x0000>;
-        led {
-            led-active-low;
-        };
-    };
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x0000>;
+		nvmem-cells = <&macaddr_factory_e000>;
+		nvmem-cell-names = "mac-address";
+
+		led {
+			led-active-low;
+		};
+	};
 };
+
 &pcie1 {
-    mt76@0,0 {
-        reg = <0x0000 0 0 0 0>;
-        mediatek,mtd-eeprom = <&factory 0x8000>;
-        ieee80211-freq-limit = <5000000 6000000>;
-        led {
-            led-sources = <2>;
-            led-active-low;
-        };
-    };
+	wifi@0,0 {
+		compatible = "mediatek,mt76";
+		reg = <0x0000 0 0 0 0>;
+		mediatek,mtd-eeprom = <&factory 0x8000>;
+		nvmem-cells = <&macaddr_factory_e006>;
+		nvmem-cell-names = "mac-address";
+
+		ieee80211-freq-limit = <5000000 6000000>;
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
+	};
 };
 &ethernet {
 	compatible = "mediatek,ralink-mt7621-eth";
