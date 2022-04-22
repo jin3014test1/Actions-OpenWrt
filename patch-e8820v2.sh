@@ -126,7 +126,7 @@ EOF
 sed -i 's/^esac/zte,e8820v2)\
 	ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"\
 	ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"\
-;;\
+	;;\
 esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
 #增加交换机
