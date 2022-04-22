@@ -107,18 +107,36 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
 
 	};
 };
-&ethernet {
-	compatible = "mediatek,ralink-mt7621-eth";
-	mediatek,switch = <&gsw>;
+&gmac0 {
 	mtd-mac-address = <&factory 0xe000>;
 };
+
 &switch0 {
-	/delete-property/ compatible;
-	phy-mode = "rgmii";
+	ports {
+		port@0 {
+			status = "okay";
+			label = "lan1";			
+		};
+		port@1 {
+			status = "okay";
+			label = "lan2";	
+		};
+		port@2 {
+			status = "okay";
+			label = "lan3";
+		};
+		port@3 {
+			status = "okay";
+			label = "lan4";
+		};
+		port@4 {
+			status = "okay";
+			label = "wan";
+			mtd-mac-address = <&factory 0xe006>;
+		};
+	};
 };
-&gsw {
-	compatible = "mediatek,ralink-mt7621-gsw";
-};
+
 &state_default {
 	gpio {
 		groups = "i2c", "uart2", "uart3", "wdt";
@@ -127,19 +145,19 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
 };
 EOF
 
-#增加LED
+# 增加LED
 sed -i 's/^esac/zte,e8820v2)\
 	ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"\
 	ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"\
 	;;\
 esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
-#增加交换机
+# 增加交换机
 
-sed -i 's/d-team,newifi-d2/zte,e8820v2/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+# sed -i 's/d-team,newifi-d2/zte,e8820v2/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
+# sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "1:lan:2" "2:lan:3" "3:lan:4" "4:wan:5" "6@eth0"/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 
-#增加驱动
+# 增加驱动
 
 sed -i '$a define Device/zte_e8820v2\
   $(Device/dsa-migration)\
