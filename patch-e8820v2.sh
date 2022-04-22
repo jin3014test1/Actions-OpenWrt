@@ -124,8 +124,8 @@ EOF
 
 #增加LED
 sed -i 's/^esac/zte,e8820v2)\
-                                ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"\
-                                ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"\
+	ucidef_set_led_netdev"sys" "SYS_LED" "$boardname:white:sys""eth0" "tx rx"\
+	ucidef_set_led_default"power" "POWER_LED" "$boardname:white:power""1"\
 ;;\
 esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
@@ -141,6 +141,6 @@ sed -i '$a define Device/zte_e8820v2\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
-  DEVICE_PACKAGES :=  kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport wpad hostapd-utils luci\
+	  DEVICE_PACKAGES :=  kmod-mt7603 kmod-mt76x2 kmod-usb2\
 endef\
 TARGET_DEVICES += zte_e8820v2' ./target/linux/ramips/image/mt7621.mk
