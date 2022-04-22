@@ -83,20 +83,28 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
 	status = "okay";
 };
 &pcie0 {
-	wifi@0,0 {
-		compatible = "pci14c3,7603";
+	mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x0000>;
-		ieee80211-freq-limit = <2400000 2500000>;
+
+		led {
+			led-active-low;
+		};
+
 	};
 };
 
 &pcie1 {
-	wifi@0,0 {
-		compatible = "pci14c3,7662";
+	mt76@0,0 {
 		reg = <0x0000 0 0 0 0>;
 		mediatek,mtd-eeprom = <&factory 0x8000>;
 		ieee80211-freq-limit = <5000000 6000000>;
+
+		led {
+			led-sources = <2>;
+			led-active-low;
+		};
+
 	};
 };
 &ethernet {
