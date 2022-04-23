@@ -11,7 +11,7 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.11.2/g' package/base-files/files/bin/config_generate
+# sed -i 's/192.168.1.1/192.168.11.2/g' package/base-files/files/bin/config_generate
 # git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 # git clone https://github.com/jin3014test1/luci-app-smartdns package/luci-app-smartdns
 # git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
