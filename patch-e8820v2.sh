@@ -161,6 +161,7 @@ esac/g' ./target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 
 sed -i '$a define Device/zte_e8820v2\
   $(Device/dsa-migration)\
+  $(Device/uimage-lzma-loader)\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
