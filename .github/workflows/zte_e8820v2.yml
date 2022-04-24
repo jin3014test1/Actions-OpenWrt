@@ -57,6 +57,14 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        rm -rf openwrt/target/linux/ramips/image/mt7621.mk        
+        rm -rf openwrt/target/linux/ramips/Makefile
+        rm -rf openwrt/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
+        git clone https://github.com/jin3014test1/8820v2.git openwrt/test
+        cp openwrt/test/lede/mt7621.mk openwrt/target/linux/ramips/image
+        cp openwrt/test/lede/Makefile openwrt/target/linux/ramips
+        cp openwrt/test/lede/01_leds openwrt/target/linux/ramips/mt7621/base-files/etc/board.d        
+        cp openwrt/test/lede/mt7621_zte_e8820v2.dts openwrt/target/linux/ramips/dts
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
@@ -64,6 +72,7 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -77,6 +86,7 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
@@ -84,8 +94,27 @@ jobs:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
+
+    - name: moving config directory
+      working-directory: /workdir
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      run: |
+        cd openwrt
+        mkdir cconfig
+        cp .config cconfig
+        
+    - name: Upload config directory
+      uses: actions/upload-artifact@main
+      if: env.UPLOAD_BIN_DIR == 'true'
+      with:
+        name: OpenWrt_config${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        path: openwrt/cconfig
+        
+
+          
     - name: Download package
       id: package
+      if: (github.event.inputs.ssh == 'false')
       run: |
         cd openwrt
         make defconfig
@@ -94,6 +123,7 @@ jobs:
         find dl -size -1024c -exec rm -f {} \;
     - name: Compile the firmware
       id: compile
+      if: (github.event.inputs.ssh == 'false')
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
