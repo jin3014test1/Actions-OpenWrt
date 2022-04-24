@@ -3,6 +3,8 @@
 #增加mt7621_zte_e8820v2.dts
 
 cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
+/dts-v1/;
+
 #include "mt7621.dtsi"
 #include <dt-bindings/gpio/gpio.h>
 #include <dt-bindings/input/input.h>
@@ -48,7 +50,7 @@ cat>./target/linux/ramips/dts/mt7621_zte_e8820v2.dts<<EOF
 };
 &spi0 {
 	status = "okay";
-	flash@0 {
+	m25p80@0 {
 		compatible = "jedec,spi-nor";
 		reg = <0>;
 		spi-max-frequency = <10000000>;
@@ -149,11 +151,9 @@ sed -i 's/"0:lan:4" "1:lan:3" "2:lan:2" "3:lan:1" "4:wan:5" "6@eth0"/"0:lan:1" "
 # 增加驱动
 
 sed -i '$a define Device/zte_e8820v2\
-  $(Device/dsa-migration)\
-  $(Device/uimage-lzma-loader)\
   IMAGE_SIZE := 16064k\
   DEVICE_VENDOR := ZTE\
   DEVICE_MODEL := E8820V2\
-	  DEVICE_PACKAGES :=  kmod-mt7603 kmod-mt76x2 kmod-usb2\
+	  DEVICE_PACKAGES :=  kmod-mt7603 kmod-mt76x2 kmod-usb3 kmod-usb-ledtrig-usbport wpad luci\
 endef\
 TARGET_DEVICES += zte_e8820v2' ./target/linux/ramips/image/mt7621.mk
