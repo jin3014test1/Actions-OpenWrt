@@ -7,8 +7,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte_e8820v2_lede-lede
-
+name: zte_e8820v2-lede
 on:
   repository_dispatch:
   workflow_dispatch:
