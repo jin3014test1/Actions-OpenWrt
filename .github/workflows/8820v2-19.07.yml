@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 8820v2
+name: 8820v2-19.07
 
 on:
   repository_dispatch:
