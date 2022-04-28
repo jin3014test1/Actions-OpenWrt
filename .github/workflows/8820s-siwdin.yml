@@ -21,7 +21,7 @@ on:
 
 env:
   REPO_URL: https://github.com/siwind/openwrt.git
-  REPO_BRANCH: openwrt-19.07
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: 8820v2-19.07.config
   DIY_P1_SH: diy-part1.sh
