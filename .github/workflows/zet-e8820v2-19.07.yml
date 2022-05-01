@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 8820v2-19.07
+name: zet-e8820v2-19.07
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/siwind/openwrt.git
   REPO_BRANCH: openwrt-19.07
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: 8820v2-19.07.config
+  CONFIG_FILE: zet-e8820v2-19.07.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -62,14 +62,14 @@ jobs:
         # git clone https://github.com/BoringCat/luci-app-mentohust.git openwrt/package/luci-app-mentohust
         # git clone https://github.com/kongfl888/luci-app-adguardhome.git openwrt/package/luci-app-adguardhome
         # git clone https://github.com/rufengsuixing/luci-app-zerotier.git openwrt/package/luci-app-zerotier
-        rm -rf openwrt/target/linux/ramips/image/mt7621.mk        
-        rm -rf openwrt/target/linux/ramips/base-files/etc/board.d/02_network
-        rm -rf openwrt/target/linux/ramips/base-files/etc/board.d/01_leds
-        git clone https://github.com/jin3014test1/8820v2.git openwrt/test
-        cp openwrt/test/E8820v2-19.07/mt7621.mk openwrt/target/linux/ramips/image
-        cp openwrt/test/E8820v2-19.07/02_network openwrt/target/linux/ramips/base-files/etc/board.d
-        cp openwrt/test/E8820v2-19.07/01_leds openwrt/target/linux/ramips/base-files/etc/board.d        
-        cp openwrt/test/E8820v2-19.07/E8820V2.dts openwrt/target/linux/ramips/dts
+        #rm -rf openwrt/target/linux/ramips/image/mt7621.mk        
+        #rm -rf openwrt/target/linux/ramips/base-files/etc/board.d/02_network
+        #rm -rf openwrt/target/linux/ramips/base-files/etc/board.d/01_leds
+        #git clone https://github.com/jin3014test1/8820v2.git openwrt/test
+        #cp openwrt/test/E8820v2-19.07/mt7621.mk openwrt/target/linux/ramips/image
+        #cp openwrt/test/E8820v2-19.07/02_network openwrt/target/linux/ramips/base-files/etc/board.d
+        #cp openwrt/test/E8820v2-19.07/01_leds openwrt/target/linux/ramips/base-files/etc/board.d        
+        #cp openwrt/test/E8820v2-19.07/E8820V2.dts openwrt/target/linux/ramips/dts
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
