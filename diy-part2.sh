@@ -15,3 +15,5 @@
 # git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 # git clone -b lede https://github.com/jin3014test1/luci-app-smartdns.git package/luci-app-smartdns
 # git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
+git clone https://github.com/siwind/openwrt-vlmcsd package/vlmcsd
+git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
