@@ -17,3 +17,4 @@
 # git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
 git clone https://github.com/siwind/openwrt-vlmcsd package/vlmcsd
 git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
+git clone https://github.com/siwind/luci-app-usb_printer.git
