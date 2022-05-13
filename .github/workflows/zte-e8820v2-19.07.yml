@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte-e8820v2-19.07.0
+name: zte-e8820v2-v19.07.7
 
 on:
   repository_dispatch:
