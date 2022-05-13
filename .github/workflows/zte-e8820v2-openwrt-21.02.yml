@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte-e8820v2-siwind-21.02
+name: zte-e8820v2-siwind-kernel-5.4.162
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -20,7 +20,7 @@ on:
 
 env:
   REPO_URL: https://github.com/siwind/openwrt.git
-  REPO_BRANCH: openwrt-21.02
+  REPO_BRANCH: kernel-5.4.162
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: zte-e8820v2-21.02.config
   DIY_P1_SH: diy-part1.sh 
