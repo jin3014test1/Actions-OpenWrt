@@ -18,3 +18,14 @@
 git clone https://github.com/siwind/openwrt-vlmcsd package/vlmcsd
 git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
 git clone https://github.com/siwind/luci-app-usb_printer.git package/luci-app-usb_printer
+
+
+
+# smartdns
+cd openwrt
+sudo rm -rf feeds/luci/applications/luci-app-smartdns
+sudo rm -rf package/feeds/luci/luci-app-smartdns
+sudo rm -rf feeds/packages/net/smartdns
+sudo rm -rf package/feeds/packages/smartdns
+svn co https://github.com/kenzok8/small-package/trunk/luci-app-smartdns package/diy/luci-app-smartdns
+svn co https://github.com/kenzok8/small-package/trunk/smartdns package/diy/smartdns
