@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte-e8820s-siwind-master
+name: zte-e8820s-lede-master
 
 on:
   repository_dispatch:
