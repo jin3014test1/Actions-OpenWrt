@@ -24,8 +24,8 @@ env:
   REPO_BRANCH: v21.02.3
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: e8820s-nand-openwrt-v21.02.3-upnp-kms-ddns.config
-  DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2-v21.02.3.sh
+  DIY_P1_SH: diy-part1-v21.02.3.sh
+  DIY_P2_SH: diy-part1.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
