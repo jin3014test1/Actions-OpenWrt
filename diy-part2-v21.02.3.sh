@@ -15,10 +15,16 @@
 # git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 # git clone -b lede https://github.com/jin3014test1/luci-app-smartdns.git package/luci-app-smartdns
 # git clone --depth=1 https://github.com/fw876/helloworld.git package/helloworld
-git clone https://github.com/siwind/openwrt-vlmcsd package/vlmcsd
-git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
-git clone https://github.com/siwind/luci-app-usb_printer.git package/luci-app-usb_printer
+# git clone https://github.com/siwind/openwrt-vlmcsd package/vlmcsd
+# git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
+# git clone https://github.com/siwind/luci-app-usb_printer.git package/luci-app-usb_printer
 
+wget https://raw.githubusercontent.com/TsXor/my-openwrt-archive/master/zte_e8820s/orig-v21.02.3/code.tar.gz
+tar -zxvf code.tar.gz
+# 加入E8820S支持
+sh code/append.sh
+#顺手把补丁删了
+rm -rf code.tar.gz code
 
 
 # smartdns
