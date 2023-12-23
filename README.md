@@ -21,8 +21,8 @@ SmartDNS在这个固件里一直显示收集数据，但dns功能没问题，网
 ****
 # zte-e8820s
 买了个体视显微镜，再把spi改回nand，闲着无聊嘛，上面的spi固件运行良好，纯属闲着无聊。焊工还是不咋样，电阻适合用风枪，焊nand还是适合用电烙铁，这主板散热太快，烙铁温度设置到380度，一个脚一个脚焊，点一下一个脚也挺快。拖焊没弄成，大概温度设置还是太低或者烙铁回温慢。反正最后焊好，5g就彻底没了，换回spi也没有，换回原厂固件也没有（5g的mac都是0），可能是硬件碰坏哪里了。  
-### siwind库
+###### siwind库
 __menuconfig时必要的选项是Luci---collection----Luci__，这个包含了路由器管理界面和防火墙，ipv6是默认自带的不用管。compat也要选，不然kms界面报错。还要选netwark--firewall--miniupnpc，不然upnp报错【UPnP not working UPnPError 501: ActionFailed】。
-### lede库
+###### lede库
 都默认就行，不过启动比siwind慢很多，估计是默认插件太多，也许删掉五六个就能和siwind的差不多了
 
