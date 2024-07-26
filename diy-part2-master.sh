@@ -21,7 +21,6 @@ sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_genera
 
 
 # 加入E8820S支持
-cd  openwrt
 wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/code.tar.gz
 tar -zxvf code.tar.gz
 rsync -r code/tree/* .
