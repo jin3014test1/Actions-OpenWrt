@@ -21,12 +21,11 @@ sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_genera
 
 
 # 加入E8820S支持
-# wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/code.tar.gz
-# tar -zxvf code.tar.gz
-git clone https://github.com/jin3014test1/Actions-OpenWrt/code code
+wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/code.tar.gz
+tar -zxvf code.tar.gz
 sh code/append.sh
 #顺手把补丁删了
-rm -rf  code
+rm -rf  code code.tar.gz
 
 
 # smartdns
