@@ -26,3 +26,5 @@ __menuconfig时必要的选项是Luci---collection----Luci__，这个包含了�
 ###### lede库
 都默认就行，不过启动比siwind慢很多，估计是默认插件太多，也许删掉五六个就能和siwind的差不多了
 
+
+修改master版重新编译
