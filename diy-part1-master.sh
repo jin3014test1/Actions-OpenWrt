@@ -21,7 +21,7 @@ sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_genera
 
 
 # 加入E8820S支持
-# wget https://raw.githubusercontent.com/TsXor/my-openwrt-archive/master/zte_e8820s/orig-v21.02.3/code.tar.gz
+# wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/code.tar.gz
 # tar -zxvf code.tar.gz
 git clone https://github.com/jin3014test1/Actions-OpenWrt/code code
 sh code/append.sh
