@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte-e8820s-openwrt-v21.02.3
+name: zte-e8820s-openwrt-master
 
 on:
   repository_dispatch:
@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: e8820s-nand-openwrt-v21.02.3-upnp-kms-ddns.config
+  CONFIG_FILE: e8820s-nand-openwrt-master-upnp-kms-ddns.config
   DIY_P1_SH: diy-part1-master.sh
   DIY_P2_SH: diy-part1.sh
   UPLOAD_BIN_DIR: false
