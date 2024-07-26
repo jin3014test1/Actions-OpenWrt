@@ -23,6 +23,8 @@ sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_genera
 # 加入E8820S支持
 wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/code.tar.gz
 tar -zxvf code.tar.gz
+git config --global user.email "jin3014@163.com"
+git config --global user.name "jin3014"
 sh code/append.sh
 #顺手把补丁删了
 rm -rf  code code.tar.gz
