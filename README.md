@@ -27,4 +27,6 @@ __menuconfig时必要的选项是Luci---collection----Luci__，这个包含了�
 都默认就行，不过启动比siwind慢很多，估计是默认插件太多，也许删掉五六个就能和siwind的差不多了
 
 
-修改master版重新编译
+###### openwrt库master重新编译
+P3TERX更新了，2024年2月更新的，openwrt库这两年也更新不少，正好路由器有些问题，直接重建固件
+用的siwind的8820s支持文件，由于siwind的image.mk文件包含了nokia路由，而openwrt的dts目录里没有，编译时报错退出，没有其他办法，只好把nokia的dts还有其他siwind增加的路由器dts文件都一并传进openwrt目录，用的diy_p2_sh文件加入的。
