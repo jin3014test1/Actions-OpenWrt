@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: OpenWrt Builder
+name: zte-e8820s-nand-kms-ddns-openwrt-maste
 
 on:
   repository_dispatch:
