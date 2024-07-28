@@ -31,14 +31,16 @@ git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
 
 # 加入E8820S支持
 wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/dts/mt7621_zte_e8820s.dts
+wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/dts/mt7621_nokia-sbell_a040wq.dts
+wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/dts/mt7621_zte_e8820v2.dts
 wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/mt7621/base-files/lib/upgrade/platform.sh
 wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/image/mt7621.mk
-rsync -a  mt7621_zte_e8820s.dts target/linux/ramips/dts
+rsync -a  mt7621_* target/linux/ramips/dts
 rsync -a  01_leds target/linux/ramips/mt7621/base-files/etc/board.d
 rsync -a  platform.sh target/linux/ramips/mt7621/base-files/lib/upgrade
 rsync -a  mt7621.mk target/linux/ramips/image
-rm  mt7621_zte_e8820s.dts 01_leds  platform.sh mt7621.mk
+rm  mt7621* 01_leds  platform.sh 
 
 
 # smartdns
