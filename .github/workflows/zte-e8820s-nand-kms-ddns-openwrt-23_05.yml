@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: zte-e8820s-nand-kms-ddns-openwrt-maste
+name: zte-e8820s-nand-kms-ddns-openwrt-23.05
 
 on:
   repository_dispatch:
@@ -18,9 +18,9 @@ on:
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: openwrt-23.05
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: zte-e8820s-nand-kms-ddns-openwrt-master.config
+  CONFIG_FILE: zte-e8820s-nand-kms-ddns-openwrt-23_05.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2-openwrt-master.sh
   UPLOAD_BIN_DIR: false
