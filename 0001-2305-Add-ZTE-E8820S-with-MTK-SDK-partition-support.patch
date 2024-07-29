@@ -223,9 +223,9 @@ index ab0ff95..3770dd8 100644
 +endef
 +TARGET_DEVICES += zte_e8820s
 +
-  define Device/zyxel_lte3301-plus
-  $(Device/nand)
-  DEVICE_VENDOR := ZyXEL
+ define Device/zyxel_lte3301-plus
+   $(Device/nand)
+   DEVICE_VENDOR := ZyXEL
 diff --git a/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds b/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
 index 5f1e126..c6eaafe 100644
 --- a/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
