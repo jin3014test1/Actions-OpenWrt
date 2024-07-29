@@ -32,8 +32,8 @@ git clone https://github.com/siwind/luci-app-vlmcsd.git package/luci-app-vlmcsd
 # 加入E8820S支持
 #wget https://gitee.com/jin3014/openwrt-swind/raw/master/target/linux/ramips/dts/mt7621_zte_e8820s.dts
 #rsync -a  mt7621_* target/linux/ramips/dts
-wget https://gitee.com/jin3014/Actions-OpenWrt/raw/main/0001-2305-Add-ZTE-E8820S-with-MTK-SDK-partition-support.patch
-patch p1 < 0001-2305-Add-ZTE-E8820S-with-MTK-SDK-partition-support.patch
+wget https://raw.githubusercontent.com/jin3014test1/Actions-OpenWrt/main/0001-2305-Add-ZTE-E8820S-with-MTK-SDK-partition-support.patch
+patch -p1 -N < 0001-2305-Add-ZTE-E8820S-with-MTK-SDK-partition-support.patch
 rm  0001-2305-Add-ZTE-E8820S-with-MTK-SDK-partition-support.patch 
 
 
