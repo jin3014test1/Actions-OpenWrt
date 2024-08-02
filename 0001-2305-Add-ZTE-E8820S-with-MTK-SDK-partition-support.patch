@@ -244,7 +244,7 @@ diff --git a/target/linux/ramips/mt7621/base-files/etc/board.d/02_network b/targ
 index afd4a37..3597ac9 100644
 --- a/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
 +++ b/target/linux/ramips/mt7621/base-files/etc/board.d/02_network
-@@ -30,6 +32,9 @@ ramips_setup_interfaces()
+@@ -30,6 +30,9 @@ ramips_setup_interfaces()
  	zyxel,wsm20)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3" "wan"
 		;;
