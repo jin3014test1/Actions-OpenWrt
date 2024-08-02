@@ -22,7 +22,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: zte-e8820s-nand-kms-ddns-openwrt-master.config
   DIY_P1_SH: diy-part1.sh
-  DIY_P2_SH: diy-part2-openwrt-23_05.sh
+  DIY_P2_SH: diy-part2-openwrt-master.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
