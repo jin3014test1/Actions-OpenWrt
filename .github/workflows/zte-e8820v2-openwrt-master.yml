@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: zte-e8820v2-openwrt-master
+name: zte-e8820v2-openwrt-siwind-main
 on:
   repository_dispatch:
   workflow_dispatch:
@@ -20,9 +20,9 @@ on:
 
 env:
   REPO_URL: https://github.com/siwind/openwrt.git
-  REPO_BRANCH: master
+  REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: zte-e8820v2-master.config
+  CONFIG_FILE: zte-e8820v2-siwind-main.config
   DIY_P1_SH: diy-part1.sh 
   DIY_P2_SH: diy-part2.sh 
   UPLOAD_BIN_DIR: false
