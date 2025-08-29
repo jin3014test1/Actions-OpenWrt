@@ -21,7 +21,7 @@ on:
 
 env:
   REPO_URL: https://github.com/siwind/openwrt.git
-  REPO_BRANCH: main
+  REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: zte-e8820v2-openwrt-siwind-main.config
   DIY_P1_SH: diy-part1.sh
