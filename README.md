@@ -1,3 +1,33 @@
+# master不断在更新，某些插件跟不上，无法完成编译，还是固定在23.05吧
+make menuconfig
+LuCI ---> 
+	1、Collections ---> luci
+	3、Applications --->   	
+		luci-app-ddns
+		luci-app-firewall（这个在选了luci后自动就选上了）
+		luci-app-usb-printer（选了这个，p910nd +kmod-usb-printer自动就会选上）
+		luci-app-upnp
+		luci-app-vlmcsd
+	2、Modules--->	luci-compat（这个有时也是默认被选上）
+				Translations ---> Chinese Simplified
+	4、Theme ---> 	luci-theme-bootstrap（默认选上了）
+Network ---> socat
+# 通过以下命令行获得 seed.config 配置文件，然后使用 GitHub Ac-tions 云编译：
+# 若在调整OpenWrt系统组件的过程有多次保存操作，则建议先删除.config.old文件再继续操作
+rm -f .config.old
+
+# 根据编译环境生成默认配置
+make defconfig
+
+# 对比默认配置的差异部分生成配置文件（可以理解为增量）
+./scripts/diffconfig.sh > diff.config
+-----------------------------------------------------------------------------------
+# 以下都是历史了
+
+
+
+
+
 # zte-e8820v2
 
 对于zet-e8820v2，谋求原版openwrt自行修改dts不是业余人士能干的，我努力了一个多星期宣告放弃，目前找到的可用代码库是siwind的，他已经增补了dts等文件，虽然代码库不如原始openwrt/openwrt那么新，但好用。
