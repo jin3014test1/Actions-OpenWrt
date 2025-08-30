@@ -61,12 +61,12 @@ jobs:
         # git clone https://github.com/BoringCat/luci-app-mentohust.git openwrt/package/luci-app-mentohust
         # git clone https://github.com/kongfl888/luci-app-adguardhome.git openwrt/package/luci-app-adguardhome
         # git clone https://github.com/rufengsuixing/luci-app-zerotier.git openwrt/package/luci-app-zerotier
-        rm -rf /openwrt/target/linux/ramips/image/mt7621.mk        
-        rm -rf /openwrt/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
-        git clone https://gitee.com/jin3014/e8820v2.git /openwrt/test
-        cp /openwrt/test/e8820v2/mt7621.mk /openwrt/target/linux/ramips/image
-        cp /openwrt/test/e8820v2/01_leds /openwrt/target/linux/ramips/mt7621/base-files/etc/board.d
-        cp /openwrt/test/e8820v2/mt7621_zte_e8820v2.dts /openwrt/target/linux/ramips/dts
+        rm -rf openwrt/target/linux/ramips/image/mt7621.mk        
+        rm -rf openwrt/target/linux/ramips/mt7621/base-files/etc/board.d/01_leds
+        git clone https://gitee.com/jin3014/e8820v2.git openwrt/test
+        cp openwrt/test/e8820v2/mt7621.mk openwrt/target/linux/ramips/image
+        cp openwrt/test/e8820v2/01_leds openwrt/target/linux/ramips/mt7621/base-files/etc/board.d
+        cp openwrt/test/e8820v2/mt7621_zte_e8820v2.dts openwrt/target/linux/ramips/dts
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
