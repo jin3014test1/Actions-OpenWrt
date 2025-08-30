@@ -1,4 +1,6 @@
 # master不断在更新，某些插件跟不上，无法完成编译，还是固定在23.05吧
+
+
 make menuconfig
 LuCI ---> 
 	1、Collections ---> luci
@@ -12,7 +14,11 @@ LuCI --->
 				Translations ---> Chinese Simplified
 	4、Theme ---> 	luci-theme-bootstrap（默认选上了）
 Network ---> socat
-# 通过以下命令行获得 seed.config 配置文件，然后使用 GitHub Ac-tions 云编译：
+
+
+
+
+# 通过以下命令行获得 seed.config 配置文件，然后使用 GitHub Ac-tions 云编译
 # 若在调整OpenWrt系统组件的过程有多次保存操作，则建议先删除.config.old文件再继续操作
 rm -f .config.old
 
@@ -21,8 +27,17 @@ make defconfig
 
 # 对比默认配置的差异部分生成配置文件（可以理解为增量）
 ./scripts/diffconfig.sh > diff.config
------------------------------------------------------------------------------------
-# 以下都是历史了
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------
+## 以下都是历史了
 
 
 
