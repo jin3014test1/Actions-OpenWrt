@@ -68,7 +68,8 @@ jobs:
         cp test/e8820v2/01_leds target/linux/ramips/mt7621/base-files/etc/board.d
         cp test/e8820v2/mt7621_zte_e8820v2.dts target/linux/ramips/dts
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
+
+  
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
