@@ -20,7 +20,7 @@ on:
 
 env:
   REPO_URL: https://github.com/siwind/openwrt
-  REPO_BRANCH: master
+  REPO_BRANCH: 21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: zte-e8820v2-21.02.config
   DIY_P1_SH: diy-part1.sh 
